@@ -18,6 +18,11 @@ vim.g.have_nerd_font = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- nvim-tree requires we disable netrw, the built-in vim file explorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -111,6 +116,17 @@ require("lazy").setup({
       priority = 1000,
       opts = {},
     },
+    {
+      "nvim-tree/nvim-tree.lua",
+      version = "*",
+      lazy = false,
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("nvim-tree").setup {}
+      end,
+    }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -131,6 +147,9 @@ vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Telescope live gr
 -- idea from the primeagen, this centers the screen after control d / control u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+local api = require('nvim-tree.api')
+vim.keymap.set('n', '<C-n>', api.tree.toggle, { desc = 'Toggle nvim tree' })
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "cpp", "asm", "make", "markdown", "markdown_inline" },
