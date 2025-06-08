@@ -133,7 +133,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "cpp", "asm", "make", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+  ensure_installed = { "c", "cpp", "asm", "make", "markdown", "markdown_inline" },
   sync_install = false,
   auto_install = true,
   highlight = {
