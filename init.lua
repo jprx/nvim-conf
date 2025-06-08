@@ -83,6 +83,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- idea from the primeagen, this centers the screen after control d / control u
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -100,73 +104,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    {
-      'nvim-telescope/telescope.nvim', tag = '0.1.8',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-    {
-      "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate",
-    },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
-    },
-    {
-      "nvim-tree/nvim-tree.lua",
-      version = "*",
-      lazy = false,
-      dependencies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        require("nvim-tree").setup {}
-      end,
-    }
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
-})
+require("lazy").setup("plugins")
 
--- https://github.com/nvim-telescope/telescope.nvim
-local builtin = require('telescope.builtin')
--- open the find files dialog window:
-vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
--- search for the word under the cursor:
-vim.keymap.set('n', '<C-f>', builtin.grep_string, { desc = 'Telescope grep string' })
--- search for anything in the project:
-vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Telescope live grep' })
-
--- idea from the primeagen, this centers the screen after control d / control u
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
-local api = require('nvim-tree.api')
-vim.keymap.set('n', '<C-n>', api.tree.toggle, { desc = 'Toggle nvim tree' })
-
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "cpp", "asm", "make", "markdown", "markdown_inline" },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-  indent = {
-    enable = true,
-  },
-}
-
--- Why can't I do vim.cmd.colorscheme 'tokyonight-night' like in kickstart.nvim?
-vim.cmd[[colorscheme tokyonight-night]]
