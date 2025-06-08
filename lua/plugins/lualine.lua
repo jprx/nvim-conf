@@ -54,8 +54,6 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      -- See: https://github.com/nvim-lualine/lualine.nvim#extensions
-      -- nvim-tree makes lualine look good when in an nvim tree view
       extensions = {'nvim-tree'}
     }
   end
