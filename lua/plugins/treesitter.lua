@@ -1,8 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate",
   config = function()
-    -- why is this require'thing'.setup instead of require('thing').setup?
-    require'nvim-treesitter.configs'.setup {
+    require('nvim-treesitter.configs').setup {
       ensure_installed = { "c", "cpp", "asm", "make", "markdown", "markdown_inline" },
       sync_install = false,
       auto_install = true,
