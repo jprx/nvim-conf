@@ -21,3 +21,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+-- disable the vim splash screen when opening for the first time
+vim.cmd("set shortmess+=I")
