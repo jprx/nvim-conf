@@ -43,3 +43,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- modified from nvchad
+vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
+vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
