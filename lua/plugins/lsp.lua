@@ -22,9 +22,9 @@ return {
           end
 
           map('rn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('grr', vim.lsp.buf.references, '[G]oto [R]eferences')
+          map('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+          map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
           map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
