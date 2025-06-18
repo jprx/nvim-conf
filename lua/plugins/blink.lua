@@ -2,7 +2,7 @@
 -- Completions are the auto suggestion things (I like those)
 -- Snippets are the preformatted chunks of code that it pastes for you (I do not like those)
 -- Therefore I am only installing Blink which is a completion engine, no snippets
--- nvim-cmp is what people used to use but Blink is all the raage these days it seems
+-- nvim-cmp is what people used to use but Blink is all the rage these days it seems
 -- see: https://cmp.saghen.dev/installation
 return {
   'saghen/blink.cmp',
