@@ -46,3 +46,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- modified from nvchad
 vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
+
+-- spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
