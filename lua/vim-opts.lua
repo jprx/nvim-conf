@@ -18,6 +18,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+vim.o.showmode = false
 
 -- nvim-tree requires we disable netrw, the built-in vim file explorer
 vim.g.loaded_netrw = 1
