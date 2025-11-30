@@ -14,7 +14,7 @@ vim.o.signcolumn = 'yes'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
@@ -49,5 +49,5 @@ vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
 
 -- spell checking
-vim.opt.spell = true
+-- vim.opt.spell = true
 vim.opt.spelllang = "en_us"
