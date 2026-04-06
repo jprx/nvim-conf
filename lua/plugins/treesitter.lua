@@ -1,8 +1,8 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate",
+    "nvim-treesitter/nvim-treesitter", branch = 'main', lazy = false, build = ":TSUpdate",
     config = function()
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter.config').setup {
         ensure_installed = { "c", "cpp", "asm", "make", "markdown", "markdown_inline" },
         sync_install = false,
         auto_install = true,
