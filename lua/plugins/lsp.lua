@@ -98,6 +98,7 @@ return {
         clangd = {},
         lua_ls = {},
         texlab = {},
+        pyright = {},
       }
 
       -- unlike kickstart, I only use mason native plugins so we DO want to use ensure_installed in mason-lspconfig
