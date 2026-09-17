@@ -19,6 +19,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- you can directly specify your python interpreter like this:
+-- vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+
 require("lazy").setup("plugins")
 
 
