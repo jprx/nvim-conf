@@ -5,7 +5,7 @@ return {
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       'mason-org/mason-lspconfig.nvim',
-      'saghen/blink.cmp',
+      'jprx/blink.cmp',
     },
     config = function()
       vim.lsp.config("sourcekit", {
