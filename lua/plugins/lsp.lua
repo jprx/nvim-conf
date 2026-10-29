@@ -35,6 +35,7 @@ return {
         },
       })
       vim.lsp.enable("sourcekit")
+      vim.lsp.log.set_level("off")
 
       --  This function gets run when an LSP attaches to a particular buffer.
       --    That is to say, every time a new file is opened that is associated with
@@ -100,6 +101,7 @@ return {
         texlab = {},
         pyright = {},
         bashls = {},
+        rust_analyzer = {},
       }
 
       -- unlike kickstart, I only use mason native plugins so we DO want to use ensure_installed in mason-lspconfig
