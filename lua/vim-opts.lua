@@ -48,6 +48,20 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
 
+-- terminal config
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+
+vim.keymap.set('n', '<C-t>', function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("L")
+  vim.cmd(":startinsert")
+end, { desc = "open terminal" })
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  command = "setlocal nospell"
+})
+
 -- spell checking
 vim.opt.spell = true
 vim.opt.spelllang = "en_us"
