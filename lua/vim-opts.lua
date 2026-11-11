@@ -50,6 +50,10 @@ vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
 
 -- terminal config
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h', { desc = 'Move focus to the left window' })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = 'Move focus to the right window' })
+vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = 'Move focus to the lower window' })
+vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set('n', '<C-t>', function()
   vim.cmd.vnew()
@@ -60,6 +64,14 @@ end, { desc = "open terminal" })
 
 vim.api.nvim_create_autocmd('TermOpen', {
   command = "setlocal nospell"
+})
+
+vim.api.nvim_create_autocmd('WinEnter', {
+  callback = function()
+    if vim.bo.buftype == 'terminal' then
+      vim.cmd(":startinsert")
+    end
+  end
 })
 
 -- spell checking
