@@ -49,11 +49,13 @@ vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
 
 -- terminal config
+-- ctrl+K is used to delete to end of line in a terminal, so I disabled that one when in terminal mode
+-- Terminals always live on the right side in vertical mode anyways, so I only have ctrl+H to exit back to the buffer on the left for now
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h', { desc = 'Move focus to the left window' })
-vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = 'Move focus to the right window' })
-vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = 'Move focus to the lower window' })
-vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set('n', '<C-t>', function()
   vim.cmd.vnew()
